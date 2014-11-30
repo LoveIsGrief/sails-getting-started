@@ -44,6 +44,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  '/article': 'ArticleController.create',
+
   '/article/new': {
     view: 'article/new'
   }
