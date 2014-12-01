@@ -8,7 +8,13 @@
 module.exports = {
 
     create: function (req, res) {
-        return res.json(req.allParams());
+        Article.create(req.allParams(), function (error,created) {
+            if (error) {
+                return res.serverError(err.toString())
+            }else{
+                return res.redirect('/article/' + created.id)
+            }
+        })
     }
 };
 
