@@ -1,20 +1,24 @@
-form(action="/article", method="POST")
+extends ../layout
 
-	p
-		label(for="text") Title
-		br
-		input(
-			type="text"
-			name="title"
-			placeholder="Please add a title."
-			)
+block body
 
-	p
-		label(for="text") Text
-		br
-		textarea(
-			name="text"
-			placeholder="Please add some text to the article."
-			)
+	form(action="/article", method="POST")
 
-	button(type="submit") Submit
+		p
+			label(for="text") Title
+			br
+			input(
+				type="text"
+				name="title"
+				placeholder="Please add a title."
+				)
+
+		p
+			label(for="text") Text
+			br
+			textarea(
+				name="text"
+				placeholder="Please add some text to the article."
+				)
+
+		button(type="submit") Submit
