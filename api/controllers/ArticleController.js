@@ -13,7 +13,8 @@ module.exports = {
                 return res.serverError(err.toString())
             }else{
                 return res.redirect('/article/' + created.id)
-            })
+            }
+        })
     },
 
     show: function (req, res) {
@@ -28,6 +29,18 @@ module.exports = {
                     "article": article
                 })
             }
+        })
+    },
+
+    index: function (req, res) {
+        Article.find({}, function (error, articles) {
+            if (error) {
+                res.serverError(error.toString())
+                return
+            }
+            res.view( 'article/index', {
+                'articles': articles
+            })
         })
     }
 };
