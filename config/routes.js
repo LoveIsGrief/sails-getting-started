@@ -45,12 +45,12 @@ module.exports.routes = {
   ***************************************************************************/
 
   'POST /article': 'ArticleController.create',
+  'GET /articles': 'ArticleController.index',
 
   '/article/new': {
     view: 'article/new'
   },
 
   'GET /article/:id': 'ArticleController.show',
-
 
 };

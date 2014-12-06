@@ -1,0 +1,12 @@
+extends ../layout
+
+block body
+	table
+		tr
+			th Title
+			th Text
+
+		each article in articles
+			tr
+				td= article.title
+				td= article.text
