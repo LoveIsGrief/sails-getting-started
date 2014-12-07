@@ -9,7 +9,12 @@ module.exports = {
 
   attributes: {
 
-    title : { type: 'string' },
+    title : {
+        type: 'string',
+        required: true,
+        minLength: 5,
+        maxLength: 100
+    },
 
     text : { type: 'text' }
   }
