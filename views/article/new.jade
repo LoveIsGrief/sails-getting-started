@@ -2,8 +2,10 @@ extends ../layout
 
 block body
 
-	form(action="/article", method="POST")
+	- if( typeof error !== 'undefined' )
+		pre= error.reason + '\n' + error.details
 
+	form(action="/article", method="POST")
 		p
 			label(for="text") Title
 			br

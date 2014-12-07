@@ -9,10 +9,13 @@ module.exports = {
 
     create: function (req, res) {
         Article.create(req.allParams(), function (error,created) {
+            // Error object doc: https://github.com/balderdashy/waterline/blob/master/lib/waterline/error/WLError.js
             if (error) {
-                return res.serverError(err.toString())
+                res.view( 'article/new', {
+                    'error': error
+                })
             }else{
-                return res.redirect('/article/' + created.id)
+                res.redirect('/article/' + created.id)
             }
         })
     },
