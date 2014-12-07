@@ -1,33 +1,13 @@
 extends ../layout
+include mixins/articleForm.jade
 
 block body
 
-    h1 Editing article
+	h1 Editing article.title
 
-    - if( typeof error !== 'undefined' )
-        pre= error.reason + '\n' + error.details
+	+articleForm(
+		article,
+		"/article/update/" + article.id,
+		error)
 
-    form(action="/article/update/" + article.id, method="POST")
-
-        p
-            label(for="text") Title
-            br
-            input(
-                type="text"
-                name="title"
-                placeholder="Please add a title."
-                value=article.title
-                )
-
-        p
-            label(for="text") Text
-            br
-            textarea(
-                name="text"
-                placeholder="Please add some text to the article."
-                value=article.text
-                )
-
-        button(type="submit") Submit
-
-    a(href="/articles") Back
+	a(href="/articles") Back
