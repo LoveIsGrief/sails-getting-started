@@ -54,5 +54,6 @@ module.exports.routes = {
   'GET /article/:id': 'ArticleController.show',
 
   'GET /article/edit/:id': 'ArticleController.edit',
+  'POST /article/update/:id': 'ArticleController.update',
 
 };
