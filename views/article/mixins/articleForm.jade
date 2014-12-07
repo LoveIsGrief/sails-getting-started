@@ -1,0 +1,26 @@
+mixin articleForm(article, actionUrl, error)
+
+	form(action=actionUrl, method="POST")
+		- if( typeof error !== 'undefined' )
+			pre= error.reason + '\n' + error.details
+
+		p
+			label(for="text") Title
+			br
+			input(
+				type="text"
+				name="title"
+				placeholder="Please add a title."
+				value=article.title
+				)
+
+		p
+			label(for="text") Text
+			br
+			textarea(
+				name="text"
+				placeholder="Please add some text to the article."
+				value=article.text
+				)
+
+		button(type="submit") Submit
