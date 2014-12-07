@@ -8,8 +8,13 @@ block body
 		tr
 			th Title
 			th Text
+			th(colspan="2")
 
 		each article in articles
 			tr
 				td= article.title
 				td= article.text
+				td
+					a(href="/article/"+article.id) Show
+				td
+					a(href="/article/edit/"+article.id) Edit
