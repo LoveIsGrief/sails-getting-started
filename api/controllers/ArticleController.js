@@ -60,6 +60,27 @@ module.exports = {
                 })
             }
         })
+    },
+
+    update: function (req, res) {
+        id = req.param('id')
+        params = req.allParams()
+        Article.update(
+            id, // Article to update
+            params , // Update attributes
+            function (error,articles) {
+                // Error object doc: https://github.com/balderdashy/waterline/blob/master/lib/waterline/error/WLError.js
+                if (error) {
+                    res.view( 'article/edit/', {
+                        'error': error,
+                        'article': params
+                    })
+                }else{
+                    article = articles[0]
+                    res.redirect('/article/' + article.id)
+                }
+            }
+        )
     }
 };
 
