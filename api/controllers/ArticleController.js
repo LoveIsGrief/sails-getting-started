@@ -81,6 +81,17 @@ module.exports = {
                 }
             }
         )
+    },
+
+    destroy: function (req, res) {
+        id = req.param('id')
+        params = req.allParams()
+        Article.destroy(
+            id, // Article to destroy
+            function (error,articles) {
+                res.redirect('/articles/')
+            }
+        )
     }
 };
 
