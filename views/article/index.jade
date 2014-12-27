@@ -1,0 +1,22 @@
+extends ../layout
+
+block body
+
+	a(href="/article/new") New article
+
+	table
+		tr
+			th Title
+			th Text
+			th(colspan="3")
+
+		each article in articles
+			tr
+				td= article.title
+				td= article.text
+				td
+					a(href="/article/"+article.id) Show
+				td
+					a(href="/article/edit/"+article.id) Edit
+				td
+					a(href="/article/destroy/"+article.id) Destroy

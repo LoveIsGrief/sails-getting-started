@@ -1,0 +1,13 @@
+extends ../layout
+include mixins/articleForm.jade
+
+block body
+
+	h1 Editing article.title
+
+	+articleForm(
+		article,
+		"/article/update/" + article.id,
+		error)
+
+	a(href="/articles") Back

@@ -44,4 +44,17 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  'POST /article': 'ArticleController.create',
+  'GET /articles': 'ArticleController.index',
+
+  '/article/new': {
+    view: 'article/new'
+  },
+
+  'GET /article/:id': 'ArticleController.show',
+
+  'GET /article/edit/:id': 'ArticleController.edit',
+  'POST /article/update/:id': 'ArticleController.update',
+  '/article/destroy/:id': 'ArticleController.destroy',
+
 };

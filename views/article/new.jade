@@ -1,0 +1,11 @@
+extends ../layout
+include mixins/articleForm.jade
+
+block body
+
+	+articleForm(
+		{},
+		"/article",
+		error)
+
+	a(href="/articles") Back

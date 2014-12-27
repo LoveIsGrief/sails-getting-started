@@ -1,0 +1,13 @@
+extends ../layout
+
+block body
+	p
+		strong Title:
+		= article.title
+	p
+		strong Text:
+		= article.text
+
+	a(href="/articles") Back |
+
+	a(href="/article/edit/"+article.id)  Edit
