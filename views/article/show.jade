@@ -8,6 +8,16 @@ block body
 		strong Text:
 		= article.text
 
+	h2 Comments
+
+	each comment in article.comments
+		p
+			strong Commenter:
+			= comment.commenter
+		p
+			strong Comment:
+			= comment.body
+
 	a(href="/articles") Back |
 
 	a(href="/article/edit/"+article.id)  Edit
