@@ -16,7 +16,12 @@ module.exports = {
         maxLength: 100
     },
 
-    text : { type: 'text' }
+    text : { type: 'text' },
+
+    comments: {
+        collection: 'comment',
+        via: 'commentedArticle'
+    }
   }
 };
 
