@@ -22,7 +22,7 @@ module.exports = {
 
     show: function (req, res) {
         id = req.param('id')
-        Article.findOne({ "id": id}, function(error, article){
+        Article.findOne({ "id": id}).populateAll().exec(function(error, article){
             // Model.find doesn't consider attempting to find a non-existent object
             // a problem and simply returns no error and undefined
             if (error || article == undefined) {
