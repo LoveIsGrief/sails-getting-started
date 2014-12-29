@@ -7,11 +7,11 @@
 
 module.exports = {
 
-  create: function (req, res) {
-    inputComment = req.allParams()
-    Comment.create(inputComment, function (error, created) {
-        res.redirect('/article/' + inputComment.commentedArticle)
-    })
-  }
+	create: function (req, res) {
+		inputComment = req.allParams()
+		Comment.create(inputComment, function (error, created) {
+				res.redirect('/article/' + inputComment.commentedArticle)
+		})
+	}
 };
 
