@@ -1,4 +1,5 @@
 extends ../layout
+include mixins/commentForm.jade
 include mixins/commentCollection.jade
 
 block body
@@ -13,30 +14,7 @@ block body
 	+commentCollection(article.comments)
 
 	h2 Add a comment:
-
-	form(action="/comment", method="POST")
-		input(
-			type="hidden"
-			name="commentedArticle"
-			value=article.id
-			)
-		p
-			label(for="commenter") Commenter
-			br
-			input(
-				type="text"
-				name="commenter"
-				placeholder="What is your name?"
-				)
-		p
-			label(for="body") Body
-			br
-			textarea(
-				name="body"
-				placeholder="Enter a comment on this article"
-				)
-		p
-			button(type="submit") Submit
+	+commentForm(article,"/comment")
 
 	a(href="/articles") Back |
 
