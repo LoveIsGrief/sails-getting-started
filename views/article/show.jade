@@ -1,4 +1,5 @@
 extends ../layout
+include mixins/commentCollection.jade
 
 block body
 	p
@@ -9,15 +10,7 @@ block body
 		= article.text
 
 	h2 Comments
-
-	each comment in article.comments
-		p
-			strong Commenter:
-			= comment.commenter
-		p
-			strong Comment:
-			= comment.body
-
+	+commentCollection(article.comments)
 
 	h2 Add a comment:
 
