@@ -7,3 +7,5 @@ mixin commentCollection(comments)
 		p
 			strong Comment:
 			= comment.body
+			p
+				a(href="/comment/destroy/"+comment.id) Delete comment
