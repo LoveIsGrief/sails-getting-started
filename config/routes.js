@@ -58,4 +58,5 @@ module.exports.routes = {
   '/article/destroy/:id': 'ArticleController.destroy',
 
   'POST /comment': 'CommentController.create',
+  '/comment/destroy/:id': 'CommentController.destroy',
 };

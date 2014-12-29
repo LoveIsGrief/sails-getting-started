@@ -7,21 +7,31 @@
 
 module.exports = {
 
-  attributes: {
+	attributes: {
 
-    title : {
-        type: 'string',
-        required: true,
-        minLength: 5,
-        maxLength: 100
-    },
+		title : {
+				type: 'string',
+				required: true,
+				minLength: 5,
+				maxLength: 100
+		},
 
-    text : { type: 'text' },
+		text : { type: 'text' },
 
-    comments: {
-        collection: 'comment',
-        via: 'commentedArticle'
-    }
-  }
+		comments: {
+				collection: 'comment',
+				via: 'commentedArticle'
+		}
+	},
+
+	afterDestroy: function (destroyedRecords, callback) {
+		destroyedRecords.forEach(function (record) {
+			Comment.destroy({ commentedArticle: record.id}, function (error, destroyedComments) {
+				console.log("destroyedComments:", destroyedComments)
+			})
+		})
+		callback()
+	}
+
 };
 
