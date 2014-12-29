@@ -22,6 +22,16 @@ module.exports = {
 				collection: 'comment',
 				via: 'commentedArticle'
 		}
+	},
+
+	afterDestroy: function (destroyedRecords, callback) {
+		destroyedRecords.forEach(function (record) {
+			Comment.destroy({ commentedArticle: record.id}, function (error, destroyedComments) {
+				console.log("destroyedComments:", destroyedComments)
+			})
+		})
+		callback()
 	}
+
 };
 
