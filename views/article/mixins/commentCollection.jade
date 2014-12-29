@@ -1,0 +1,9 @@
+mixin commentCollection(comments)
+
+	each comment in comments
+		p
+			strong Commenter:
+			= comment.commenter
+		p
+			strong Comment:
+			= comment.body

@@ -1,0 +1,25 @@
+mixin commentForm(article, actionUrl)
+
+	form(action=actionUrl, method="POST")
+		input(
+			type="hidden"
+			name="commentedArticle"
+			value=article.id
+			)
+		p
+			label(for="commenter") Commenter
+			br
+			input(
+				type="text"
+				name="commenter"
+				placeholder="What is your name?"
+				)
+		p
+			label(for="body") Body
+			br
+			textarea(
+				name="body"
+				placeholder="Enter a comment on this article"
+				)
+		p
+			button(type="submit") Submit
