@@ -24,13 +24,14 @@ module.exports = {
 		}
 	},
 
-	afterDestroy: function (destroyedRecords, callback) {
-		destroyedRecords.forEach(function (record) {
-			Comment.destroy({ commentedArticle: record.id}, function (error, destroyedComments) {
-				console.log("destroyedComments:", destroyedComments)
-			})
+	afterDestroy: function (destroyedArticles, callback) {
+		ids = destroyedArticles.map(function (article) {
+			return article.id
 		})
-		callback()
+		Comment.destroy({ commentedArticle: ids}, function (error, destroyedComments) {
+			console.log(error,destroyedComments)
+			callback()
+		})
 	}
 
 };
